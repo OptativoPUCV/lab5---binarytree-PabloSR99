@@ -54,28 +54,10 @@ void insertTreeMap(TreeMap * tree, void* key, void * value) {
         tree->current = new;
         return;
     }
+    if (is_equal(tree, key, tree->current->pair->key) == 1) return;
 
-    do{
-        if (tree->current->pair->key == key) return;
+    if (tree->lower_than())
 
-        if (tree->current->pair->key > key){
-            if (tree->current->left == NULL){
-                tree->current->left = new;
-                tree->current->left->parent = tree->current;
-                tree->current = new;
-            }else{
-                tree->current = tree->current->left;
-            }
-        }else{
-            if (tree->current->right == NULL){
-                tree->current->right = new;
-                tree->current->right->parent = tree->current;
-                tree->current = new;
-            }else{
-                tree->current = tree->current->right;
-            }
-        }
-    }while(tree->current->pair != new->pair);
     
 }
 
@@ -102,7 +84,15 @@ void eraseTreeMap(TreeMap * tree, void* key){
 
 
 Pair * searchTreeMap(TreeMap * tree, void* key) {
-    
+
+    while(tree->root != NULL){
+        if (tree->lower_than(key, tree->current->pair->key) == 1){
+            tree->current = tree->current->left;
+        }else{
+            if (is_equal(tree, key, tree->current->pair->key) == 1) return tree->root->pair;
+        }
+        tree->current = tree->current->right;
+    }
     return NULL;
 }
 
