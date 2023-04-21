@@ -13,3 +13,9 @@ treemap.c:43:27: error: ‘value’ may be used uninitialized [-Werror=maybe-uni
 cc1: all warnings being treated as errors
 Compilation failed
 450df47
+Fri 21 Apr 2023 06:38:04 PM UTC: 
+ treemap.c | 9 ++++-----
+ 1 file changed, 4 insertions(+), 5 deletions(-)
+ tests:  1|8
+total_score: 0/70
+0e372bd
