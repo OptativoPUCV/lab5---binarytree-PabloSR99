@@ -1,0 +1,15 @@
+Fri 21 Apr 2023 06:28:15 PM UTC: 
+ treemap.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+In file included from test.c:4:
+treemap.c: In function ‘createTreeMap’:
+treemap.c:43:20: error: unused variable ‘root’ [-Werror=unused-variable]
+   43 |         TreeNode * root = createTreeNode(key1, value);
+      |                    ^~~~
+treemap.c:43:27: error: ‘key1’ may be used uninitialized [-Werror=maybe-uninitialized]
+   43 |         TreeNode * root = createTreeNode(key1, value);
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+treemap.c:43:27: error: ‘value’ may be used uninitialized [-Werror=maybe-uninitialized]
+cc1: all warnings being treated as errors
+Compilation failed
+450df47
